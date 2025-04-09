@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,6 +13,7 @@
       justify-content: center;
       align-items: center;
       height: 100vh;
+      margin: 0;
     }
     .container {
       background: white;
@@ -29,12 +31,17 @@
       margin: 0.5rem 0;
       border-radius: 8px;
       border: 1px solid #ccc;
+      font-size: 1rem;
     }
     button {
       background-color: #4CAF50;
       color: white;
       border: none;
       cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    button:hover {
+      background-color: #45a049;
     }
     .success {
       color: green;
@@ -47,12 +54,12 @@
 
   <div class="container">
     <h2>iPhone 16 Giveaway</h2>
-    <p>Enter your details & pay ₹5 to join the giveaway.</p>
+    <p>Enter your details & pay ₹15 to join the giveaway.</p>
 
     <input type="email" id="email" placeholder="Your Email" required />
     <input type="tel" id="phone" placeholder="Your Phone Number" required />
 
-    <button onclick="makePayment()">Pay ₹5 & Join</button>
+    <button onclick="makePayment()">Pay ₹15 & Join</button>
 
     <div class="success" id="successMsg"></div>
   </div>
@@ -67,9 +74,8 @@
         return;
       }
 
-      const upiUrl = `upi://pay?pa=msabhidevkrishna-2@oksbi&pn=iPhoneGiveaway&am=5&cu=INR&tn=Giveaway Entry from ${email}`;
+      const upiUrl = `upi://pay?pa=msabhidevkrishna-2@oksbi&pn=iPhoneGiveaway&am=15&cu=INR&tn=Giveaway Entry from ${email}`;
 
-      // Save data to backend (not included)
       window.location.href = upiUrl;
 
       document.getElementById("successMsg").innerText = "Redirecting to payment...";
